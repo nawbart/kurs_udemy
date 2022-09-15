@@ -595,7 +595,7 @@ def count_none(lista):
 a = count_none([1, None, None, 5, None, 2])
 print(a)
 
-'''
+
 def top_n(lista, x):
    res = []
    y = 0
@@ -612,8 +612,37 @@ a = top_n([4, 5, 2, 9, 5, 2, 8, 2, 8, 10], 3)
 print(a)
 
 
+#f = open("playway.txt", 'r')
+#f.close() #1 z opcji
+
+with open("playway.txt", 'r') as moj_plik: # 2 sposob na zamkniecie
+    linie = moj_plik.read().splitlines()
+    zamkniecia_dni = []
+    for idx, linia in enumerate(linie):
+        if idx > 0:
+            zamkniecia_dni.append(int(linia.split(',')[-2]))
+
+d = len(zamkniecia_dni)
+s = sum(zamkniecia_dni)
+srednia_zamk_dni = s/d
+print(srednia_zamk_dni)
+print(type(linie))
+print(linie)
 
 
+lista_WIG = []
+
+with open("indeksy.txt", 'r') as moj_plik:
+    for idx, l in enumerate(moj_plik):
+        if idx > 0:
+            linia = moj_plik.readline()
+            if linia.startswith('WIG'):
+                lista_WIG.append(linia.strip())
+                #lista_WIG.append(linia.replace('\n',''))
+
+print(lista_WIG)
+
+'''
 
 
 
